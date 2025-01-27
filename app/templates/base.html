@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Carbon Footprint Calculator{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Navbar Customization */
+        .navbar-custom {
+            background-color: #2F4F4F; 
+            padding: 1rem; /* Add padding for better spacing */
+            position: fixed; /* Make the navbar fixed */
+            top: 0; /* Align it to the top */
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Keep it above other content */
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: white; /* White text */
+            font-weight: bold;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #4CAF50; /* Green hover effect */
+        }
+
+        .navbar-custom .nav-link:active {
+            color: black; /* Black text on click */
+        }
+
+        .navbar-nav {
+            margin-left: auto; /* Align items to the right */
+        }
+
+        /* Background Image for the body */
+        body {
+            background: url("{{ url_for('static', filename='images/image.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            padding-top: 80px; /* Adjust padding to avoid overlap with fixed navbar */
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for content */
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        /* Flash messages */
+        .alert {
+            border-radius: 8px;
+        }
+
+        /* Navbar item spacing */
+        .nav-item {
+            margin-right: 20px; /* Spacing between navbar items */
+        }
+
+        .navbar-right {
+            margin-left: auto; /* Push to the far right */
+        }
+
+        .navbar-text {
+            font-size: 0.9rem; /* Smaller font for the email text */
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="{{ url_for('main.home') }}">Carbon Footprint</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.home') }}">Home</a>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.dashboard') }}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.results') }}">Results</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.projects') }}">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.payments') }}">Payments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.profile') }}">Profile</a>
+                </li>                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.payment') }}">Pay your Eco Levy </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.logout') }}">Logout</a>
+                </li>
+                <li class="nav-item navbar-right">
+                    <span class="navbar-text">{{ current_user.email }}</span>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.register') }}">Register</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

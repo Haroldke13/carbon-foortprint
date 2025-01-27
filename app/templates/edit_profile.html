@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="card shadow-lg">
+            <div class="card-header text-center bg-primary text-white">
+                <h2>Edit Profile</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('main.edit_profile') }}">
+                    {{ form.hidden_tag() }}
+
+                    <div class="form-group">
+                        {{ form.username.label(class="form-control-label") }}
+                        {{ form.username(class="form-control", placeholder="Enter username") }}
+                        {% if form.username.errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.email.label(class="form-control-label") }}
+                        {{ form.email(class="form-control", placeholder="Enter email") }}
+                        {% if form.email.errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.location.label(class="form-control-label") }}
+                        {{ form.location(class="form-control", placeholder="Enter location") }}
+                        {% if form.location.errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.location.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.household_size.label(class="form-control-label") }}
+                        {{ form.household_size(class="form-control", placeholder="Enter household size") }}
+                        {% if form.household_size.errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.household_size.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.vehicle_ownership.label(class="form-control-label") }}
+                        {{ form.vehicle_ownership(class="form-control", placeholder="Enter vehicle ownership") }}
+                        {% if form.vehicle_ownership.errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.vehicle_ownership.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.dietary_preference.label(class="form-control-label") }}
+                        {{ form.dietary_preference(class="form-control", placeholder="Enter dietary preference") }}
+                        {% if form.dietary_preference.errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.dietary_preference.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.submit(class="btn btn-success btn-lg") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

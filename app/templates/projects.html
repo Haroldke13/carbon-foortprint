@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}Our Projects{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-4">Our Projects</h2>
+    <p class="lead text-center mb-5">Explore our projects focused on reducing carbon footprints and promoting sustainability. Together, we can make a difference!</p>
+
+    <!-- Offset Projects Section -->
+    <h3 class="mb-4">Offset Projects</h3>
+    <p class="mb-4">These projects are designed to help offset carbon emissions:</p>
+    <div class="row">
+        <!-- One Tree Planted -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm rounded-lg">
+                <img src="{{ url_for('static', filename='images/image_3.jpg') }}"  class="card-img-top" alt="One Tree Planted" style="height: 200px; object-fit: contain;">
+                <div class="card-body">
+                    <h5 class="card-title">One Tree Planted</h5>
+                    <p class="card-text">A nonprofit that plants trees around the world to help absorb CO2. They work with reforestation projects globally.</p>
+                    <a href="https://www.onetreeplanted.org" target="_blank" class="btn btn-success w-100">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <!-- Stockholm Environment Institute -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm rounded-lg">
+                <img src="{{ url_for('static', filename='images/image_2.jpg') }}"  class="card-img-top" alt="Stockholm Environment Institute" style="height: 200px; object-fit: contain;">
+                <div class="card-body">
+                    <h5 class="card-title">Stockholm Environment Institute</h5>
+                    <p class="card-text">Engages in research and projects that address global environmental challenges to help build a more sustainable future.</p>
+                    <a href="https://www.sei.org" target="_blank" class="btn btn-success w-100">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <!-- Sustainable Agriculture Network -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm rounded-lg">
+                <img src="{{ url_for('static', filename='images/image_1.jpg') }}"  class="card-img-top" alt="Sustainable Agriculture Network" style="height: 200px; object-fit: contain;">
+                <div class="card-body">
+                    <h5 class="card-title">Sustainable Agriculture Network</h5>
+                    <p class="card-text">Promotes sustainable farming practices to improve environmental health and farm productivity, benefiting farmers and ecosystems.</p>
+                    <a href="https://www.sustainableagriculture.net" target="_blank" class="btn btn-success w-100">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other Projects Section -->
+    <h3 class="mt-5 mb-4">Other Projects</h3>
+    <p class="mb-4">Explore more of our impactful projects:</p>
+    <div class="row">
+        <!-- Earth Day Network -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm rounded-lg">
+                <img src="{{ url_for('static', filename='images/image_3.jpeg') }}"  class="card-img-top" alt="Earth Day Network" style="height: 200px; object-fit: contain;">
+                <div class="card-body">
+                    <h5 class="card-title">Earth Day Network</h5>
+                    <p class="card-text">Focuses on environmental protection and promotes initiatives for a cleaner planet through awareness campaigns and grassroots organizing.</p>
+                    <a href="https://www.earthday.org" target="_blank" class="btn btn-success w-100">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <!-- Green Building Advisor -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm rounded-lg">
+                <img src="{{ url_for('static', filename='images/image_2.jpeg') }}"  class="card-img-top" alt="Green Building Advisor" style="height: 200px; object-fit: contain;">
+                <div class="card-body">
+                    <h5 class="card-title">Green Building Advisor</h5>
+                    <p class="card-text">Provides resources and advice for sustainable building practices, energy efficiency, and environmentally responsible design.</p>
+                    <a href="https://www.greenbuildingadvisor.com" target="_blank" class="btn btn-success w-100">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <!-- U.S. Department of Transportation - Clean Transportation -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm rounded-lg">
+                <img src="{{ url_for('static', filename='images/image_1.jpeg') }}"  class="card-img-top" alt="U.S. Department of Transportation - Clean Transportation" style="height: 200px; object-fit: contain;">
+                <div class="card-body">
+                    <h5 class="card-title">U.S. Department of Transportation - Clean Transportation</h5>
+                    <p class="card-text">Offers information on clean transportation technologies and policies that aim to reduce transportation emissions and promote sustainable travel.</p>
+                    <a href="https://www.transportation.gov" target="_blank" class="btn btn-success w-100">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        /* Media Query for Responsiveness */
+        @media (max-width: 767px) {
+            .card-body {
+                padding: 1.25rem; /* Adjust padding for smaller screens */
+            }
+
+            .card-title {
+                font-size: 1.2rem; /* Adjust title size */
+            }
+
+            .card-text {
+                font-size: 0.95rem; /* Adjust text size */
+            }
+        }
+        h5,p {
+            color: black;
+            
+        }
+    </style>
+
+</div>
+{% endblock %}

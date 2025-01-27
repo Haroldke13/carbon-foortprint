@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}Carbon Footprint Calculator{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <div class="jumbotron text-center" style="background-color: white; color: black; padding: 80px 0;">
+        <h1 class="display-4">Welcome to the Carbon Footprint Calculator</h1>
+        <p class="lead">Track your environmental impact and join the global effort to combat climate change.</p>
+        <a href="/dashboard" class="btn btn-primary btn-lg">Start Calculating Now</a>
+    </div>
+
+    <!-- Introduction Section -->
+    <div class="container mt-5">
+        <h2 class="text-center">What is the Carbon Footprint Calculator?</h2>
+        <p class="lead text-center">This application helps individuals calculate their carbon footprint, understand their environmental impact, and find offset projects to reduce emissions. Start your journey towards a more sustainable lifestyle today!</p>
+    </div>
+
+    <!-- Latest Climate News Section -->
+    <section class="container mt-5">
+        <h2 class="text-center mb-4">Latest Developments in Climate Change</h2>
+        <div class="row">
+            <!-- COP26 Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <img src="{{ url_for('static', filename='images/image_1.jpg') }}" class="card-img-top" alt="COP26 Conference" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">COP26: A Critical Turning Point</h5>
+                        <p class="card-text">The COP26 conference held in Glasgow in 2022 marked a pivotal moment in the fight against climate change. World leaders agreed to strengthen commitments under the Paris Agreement and focus on reducing emissions to net-zero.</p>
+                        <a href="https://www.unfccc.int/cop26" target="_blank" class="btn btn-success btn-block">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COP27 Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <img src="{{ url_for('static', filename='images/image_2.jpg') }}" class="card-img-top" alt="COP27 Conference" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">COP27: Moving Beyond Commitments</h5>
+                        <p class="card-text">COP27, held in 2023, built on the promises made at COP26, emphasizing the urgent need to act on climate change and accelerate the shift to a low-carbon world economy.</p>
+                        <a href="https://www.unfccc.int/cop27" target="_blank" class="btn btn-success btn-block">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paris Agreement Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <img src="{{ url_for('static', filename='images/image_3.jpg') }}" class="card-img-top" alt="Paris Agreement" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">The Paris Agreement: A Global Pact for the Future</h5>
+                        <p class="card-text">The Paris Agreement, signed in 2015, remains a cornerstone of global climate action. It sets ambitious targets to limit global warming and transition to renewable energy sources.</p>
+                        <a href="https://www.un.org/en/climatechange/paris-agreement" target="_blank" class="btn btn-success btn-block">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        /* Media Query for Responsiveness */
+        @media (max-width: 767px) {
+            .card-body {
+                padding: 1.25rem; /* Adjust padding for smaller screens */
+            }
+
+            .card-title {
+                font-size: 1.2rem; /* Adjust title size */
+            }
+
+            .card-text {
+                font-size: 0.95rem; /* Adjust text size */
+            }
+        }
+        h5,p {
+            color: black;
+            
+        }
+    </style>
+
+
+    <!-- Actionable Tips Section -->
+    <section class="container mt-5" id="calculator">
+        <h2 class="text-center mb-4">How You Can Reduce Your Carbon Footprint</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center text-dark">
+                        <i class="fas fa-car fa-3x text-primary"></i>
+                        <h5 class="card-title mt-3">Reduce Car Usage</h5>
+                        <p class="card-text">Opt for public transport, biking, or walking to reduce emissions from fossil fuels.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center text-dark">
+                        <i class="fas fa-leaf fa-3x text-success"></i>
+                        <h5 class="card-title mt-3">Support Renewable Energy</h5>
+                        <p class="card-text">Switch to green energy providers and reduce your dependence on fossil fuels.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center text-dark">
+                    <div class="card-body text-center ">
+                        <i class="fas fa-tree fa-3x text-warning"></i>
+                        <h5 class="card-title mt-3">Plant Trees</h5>
+                        <p class="card-text">Planting trees is one of the best ways to offset carbon emissions and support biodiversity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="container mt-5 text-center">
+        <h2 class="mb-4">Start Your Carbon Footprint Journey</h2>
+        <p>Take the first step in reducing your environmental impact by calculating your carbon footprint today. Join the fight against climate change!</p>
+        <a href="/dashboard" class="btn btn-lg btn-primary">Calculate Now</a>
+    </section>
+
+{% endblock %}
