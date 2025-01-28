@@ -9,7 +9,7 @@ import stripe
 import paypalrestsdk
 from .extensions import db, login_manager, bcrypt
 from .routes import bp as main_bp
-from flask_login import LoginManager
+from flask_login import LoginManager,UserMixin
 from .models import User 
 
 def create_app():
@@ -30,7 +30,8 @@ def create_app():
     login_manager.init_app(app)
 
     # Ensure the user is redirected to login if they aren't authenticated
-    login_manager.login_view = 'auth.login'  # You can change this to your login route
+    login_manager.login_view = 'main.login'  
+    login_manager.login_message = 'Please log in to access this page.'
 
     # Load the user from the database by their user ID
     @login_manager.user_loader
