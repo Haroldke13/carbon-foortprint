@@ -107,8 +107,10 @@
         
         <button type="submit" class="btn btn-primary">Register</button>
     </form>
-    <div> 
-        <a href= "{{ url_for('main.login') }}">Already a User? LogIn Here.</a>
-
+    <div style="text-align: center; margin-top: 20px; padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <a href="{{ url_for('main.login') }}" style="text-decoration: none; color: #007BFF; font-size: 16px; font-weight: bold;">
+            Already a User? <br> Log In Here.
+        </a>
     </div>
+    
 {% endblock %}
