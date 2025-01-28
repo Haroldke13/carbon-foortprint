@@ -36,9 +36,12 @@
             </div>
         </form>
         
-        <div class="text-center mt-2"> 
-            <a href="{{ url_for('main.register') }}">Not a User? SignUp Here.</a>
+        <div style="text-align: center; margin-top: 10px; padding: 10px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <a href="{{ url_for('main.register') }}" style="text-decoration: none; color: #28a745; font-size: 16px; font-weight: bold;">
+                Not a User? Sign Up Here.
+            </a>
         </div>
+        
     </div>
 
     {% if form.email.errors %}
